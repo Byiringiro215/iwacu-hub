@@ -18,7 +18,7 @@ const Navlinks: LinkProps[] = [
 const Navbar = () => {
     const pathname=usePathname();
   return (
-    <div className='fixed w-full px-10 py-5 flex justify-between items-center'>
+    <div className='fixed w-full z-50 px-10 py-5 bg-white shadow flex justify-between items-center'>
       
         <div className='flex gap-2 items-end'>
             <img src="/smlogo.png" alt="iwacu hub logo" height={120} width={120} className=''/>
@@ -51,8 +51,8 @@ const Navbar = () => {
             ))}
         </div>
         <div className='hidden md:flex gap-2 items-center'>
-            <a href="#" className=' text-[#8C8C8C] font-semibold hover:text-[#000033]  border-r-2  pr-1'>Login</a>
-            <a href="#" className='bg-[#000033] text-white px-4 py-2 rounded-md text-sm hover:bg-[#000033]/90'>Sign Up</a>
+            <a href="/login" className=' text-[#8C8C8C] font-semibold hover:text-[#000033]  border-r-2  pr-1'>Login</a>
+            <a href="/signup" className='bg-[#000033] text-white px-4 py-2 rounded-md text-sm hover:bg-[#000033]/90'>Sign Up</a>
         </div>
         <button className='block md:hidden rounded-lg bg-gray-100 p-1 cursor-pointer'>
             <Menu/>
