@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Link from 'next/link';
 import { ChevronDown, Menu } from 'lucide-react';
@@ -8,10 +9,10 @@ interface LinkProps {
 }
 const Navlinks: LinkProps[] = [
     { href: "#", label: "home" },
-    { href: "#", label: "top sales" },
-    { href: "#", label: "services" },
+    { href: "top-sales", label: "top sales" },
+    { href: "services", label: "services" },
     { href: "#", label: "properties" },
-    { href: "#", label: "testimials" },
+    { href: "testimonies", label: "testimials" },
     { href: "#", label: "Contacts" },
 ];
 
@@ -27,7 +28,7 @@ const Navbar = () => {
             {Navlinks.map((link) => (
               link.label === 'properties' ? (
                 <div key={link.label} className='relative group'>
-                  <button className='flex items-center gap-1 font-medium capitalize text-[#8C8C8C] hover:text-[#000033]'>
+                  <button className='flex items-center gap-1 font-medium text-sm capitalize text-[#8C8C8C] hover:text-[#000033]'>
                     Properties
                   <ChevronDown/>
                   </button>
@@ -43,7 +44,7 @@ const Navbar = () => {
                 <Link
                   href={link.href}
                   key={link.label}
-                  className='font-medium capitalize hover:text-[#000033] text-[#8C8C8C]'
+                  className='font-medium text-sm capitalize hover:text-[#000033] text-[#8C8C8C]'
                 >
                   {link.label}
                 </Link>

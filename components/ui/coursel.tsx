@@ -2,11 +2,11 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
 
 interface CardSliderProps<T> {
   items: T[];
@@ -25,16 +25,25 @@ export default function CardSlider<T>({
   showDots = false,
   renderSlide,
 }: CardSliderProps<T>) {
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const paginationRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className="w-full space-x-0 px-10 relative">
-      
+    <div className="w-full px-10 relative">
       {showArrows && (
         <>
-          <button className="custom-prev absolute cursor-pointer top-1/2 -left-4 -translate-y-1/2 z-10 size-8 bg-white text-black rounded-full shadow-lg flex items-center justify-center ">
-            <ChevronLeft/>
+          <button
+            ref={prevRef}
+            className="absolute cursor-pointer top-1/2 -left-4 -translate-y-1/2 z-10 size-8 bg-white text-black rounded-full shadow-lg flex items-center justify-center"
+          >
+            <ChevronLeft />
           </button>
-          <button className="custom-next absolute cursor-pointer top-1/2 right-2 -translate-y-1/2 z-10  size-8 bg-white text-black  rounded-full shadow-lg flex items-center justify-center ">
-            <ChevronRight/>
+          <button
+            ref={nextRef}
+            className="absolute cursor-pointer top-1/2 right-2 -translate-y-1/2 z-10 size-8 bg-white text-black rounded-full shadow-lg flex items-center justify-center"
+          >
+            <ChevronRight />
           </button>
         </>
       )}
@@ -44,13 +53,36 @@ export default function CardSlider<T>({
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
         loop
-        navigation={showArrows ? { nextEl: ".custom-next", prevEl: ".custom-prev" } : false}
-        pagination={showDots ? { clickable: true } : false}
+        onInit={(swiper) => {
+          if (showArrows && prevRef.current && nextRef.current) {
+            // Assign unique arrow refs
+            // @ts-ignore
+            swiper.params.navigation.prevEl = prevRef.current;
+            // @ts-ignore
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }
+          if (showDots && paginationRef.current) {
+            // Assign unique pagination ref
+            // @ts-ignore
+            swiper.params.pagination.el = paginationRef.current;
+            swiper.pagination.init();
+            swiper.pagination.update();
+          }
+        }}
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>{renderSlide(item, index)}</SwiperSlide>
         ))}
       </Swiper>
+
+      {showDots && (
+        <div
+          ref={paginationRef}
+          className="flex justify-center mt-6 space-x-2"
+        />
+      )}
     </div>
   );
 }
