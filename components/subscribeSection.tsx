@@ -3,14 +3,14 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 const SubscribeSection = () => {
   return (
-    <div className=" translate-y-20 p-4 rounded-2xl bg-[#444546]/90 mx-20">
+    <div className=" translate-y-20  rounded-2xl bg-[#444546]/50 mx-20">
      <div>
-         <div className="space-y-1">
+         <div className="space-y-1 p-4">
         <h1 className="font-bold text-3xl">Subscribe</h1>
         <h1 className="font-bold text-3xl">Newsletter</h1>
       </div>
-      <p className="text-sm text-white font-semibold mt-3">The Travel</p>
-      <div className="bg-transparent">
+      <p className="text-sm text-white font-semibold mt-3 ml-4">The Travel</p>
+      <div className="bg-black p-4">
         <p className="text-xs text-white my-2">
           Get inspired! Receive tour discounts, tips and good place to get
           reservation.

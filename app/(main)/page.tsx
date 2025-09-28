@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
@@ -15,16 +15,13 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <div>
-    {/* <Navbar/> */}
-    <HeroSection/>
-    <TopPicksSection/>
-    <WhyUs/>
-    <OurstorySection/>
-     <TestimoniesSection/>
-    <PopularAccomodates/>
-   <TopOffers/>
-   <SubscribeSection/>
-   {/* <Footer/> */}
+      <HeroSection />
+      <TopPicksSection />
+      <WhyUs />
+      <OurstorySection />
+      <TestimoniesSection />
+      <PopularAccomodates />
+      <TopOffers />
     </div>
   );
 }

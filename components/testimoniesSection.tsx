@@ -35,7 +35,7 @@ const TestimoniesSection = () => {
         showDots={true}
         showArrows={false}
         renderSlide={(testi) => (
-          <div className="bg-white  p-4  rounded-lg space-y-7 mb-20">
+          <div className="bg-white  p-4  rounded-lg space-y-7 mb-10">
             <div className='flex gap-2 items-center'>
               <Image
               src={testi.proficPic}

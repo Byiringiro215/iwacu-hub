@@ -27,7 +27,6 @@ export default function CardSlider<T>({
 }: CardSliderProps<T>) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
-  const paginationRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="w-full px-10 relative">
@@ -53,9 +52,14 @@ export default function CardSlider<T>({
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
         loop
+        navigation={
+          showArrows
+            ? { prevEl: prevRef.current, nextEl: nextRef.current }
+            : false
+        }
+        pagination={showDots ? { clickable: true } : false}
         onInit={(swiper) => {
           if (showArrows && prevRef.current && nextRef.current) {
-            // Assign unique arrow refs
             // @ts-ignore
             swiper.params.navigation.prevEl = prevRef.current;
             // @ts-ignore
@@ -63,26 +67,12 @@ export default function CardSlider<T>({
             swiper.navigation.init();
             swiper.navigation.update();
           }
-          if (showDots && paginationRef.current) {
-            // Assign unique pagination ref
-            // @ts-ignore
-            swiper.params.pagination.el = paginationRef.current;
-            swiper.pagination.init();
-            swiper.pagination.update();
-          }
         }}
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>{renderSlide(item, index)}</SwiperSlide>
         ))}
       </Swiper>
-
-      {showDots && (
-        <div
-          ref={paginationRef}
-          className="flex justify-center mt-6 space-x-2"
-        />
-      )}
     </div>
   );
 }
