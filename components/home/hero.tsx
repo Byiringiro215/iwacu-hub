@@ -39,12 +39,13 @@ const selectOptions: SelectOptionProps[] = [
 const Hero = () => {
   return (
     <div
-      className="pt-52 h-[32rem] px-20"
+      className="pt-52 h-[32rem] px-20 "
       style={{
         backgroundImage: "url('/hero2.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        
       }}
     >
       <div className="space-y-2 w-3/4">
@@ -57,7 +58,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="p-4 rounded-t-2xl bg-white space-y-4 mt-16">
+      <div className="p-4 rounded-t-2xl bg-white space-y-4 mt-10">
         <h5 className="font-bold text-lg">Where are you Heading?</h5>
 
         <div className="flex justify-between items-center gap-4 text-xs font-light text-[#1C1B1F]/90">

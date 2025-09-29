@@ -188,7 +188,7 @@ const Navbar = ({ isAuthenticated = false, user, onLogout }: NavbarProps) => {
             </select>
 
             <Link
-              href="/favorites"
+              href="/favourites"
               className="hidden  md:flex items-center gap-1 text-sm text-[#111] hover:text-[#000033]"
             >
               <Heart className="h-5 w-5" />

@@ -178,7 +178,7 @@ const Places = () => {
                     <p className="text-xs text-white">{apartment.description}</p>
                     <span className="font-semibold text-2xl text-white">${apartment.price}</span>
                   </div>
-                  <Button variant={'secondary'} className="w-full">Buy/Reserve</Button>
+                  <Button variant={'secondary'} className="w-full text-white">Buy/Reserve</Button>
                 </div>
               </div>
 ))}
