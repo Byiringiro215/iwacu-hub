@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/router";
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
 export type AuthUser = {
@@ -20,6 +21,7 @@ const STORAGE_KEY = "mock_session";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<AuthUser | null>(null);
+  
 
   // Load session from localStorage
   useEffect(() => {
@@ -51,6 +53,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(null);
     try {
       localStorage.removeItem(STORAGE_KEY);
+     
+      
     } catch (_) {}
   }, []);
 

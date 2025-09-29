@@ -11,7 +11,7 @@ const LayoutInner = ({children}:{children:React.ReactNode}) => {
   return (
     <div>
       <Navbar isAuthenticated={isAuthenticated} user={user || undefined} onLogout={logout} />
-      <main className='min-h-screen pt-30'>{children}</main>
+      <main className='min-h-screen '>{children}</main>
       <SubscribeSection/>
       <Footer/>
     </div>
