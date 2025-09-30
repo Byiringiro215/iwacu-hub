@@ -14,8 +14,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 const login = () => {
   return (
     <div>
-      <h5 className="text-sm">LETS GETY STARTED </h5>
-      <h1 className="text-bold text-lg mt-2 mb-3">Create an Account</h1>
+      <h5 className="text-sm font-light">LETS GETY STARTED </h5>
+      <h1 className="font-bold text-lg mt-2 mb-3 ">Create an Account</h1>
       <div>
         <form className="flex flex-col gap-2" autoComplete="off">
           <Input
@@ -43,7 +43,7 @@ const login = () => {
             autoComplete="new-password"
           />
 
-          <Select>
+          <Select className="text-gray-500">
             <SelectTrigger>
               <SelectValue placeholder="Property Owner" />
             </SelectTrigger>

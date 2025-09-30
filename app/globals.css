@@ -12,3 +12,51 @@ select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
 }
 
+/* Custom slider styling for the price filter */
+.price-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  height: 0; /* we draw the track separately */
+}
+
+.price-thumb:focus {
+  outline: none;
+}
+
+/* WebKit */
+.price-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #86e7c3; /* mint */
+  border: 2px solid #86e7c3;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px white; /* subtle contrast on white bg */
+}
+
+.price-thumb::-webkit-slider-runnable-track {
+  height: 3px;
+  background: transparent; /* we use a custom track div */
+}
+
+/* Firefox */
+.price-thumb::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #86e7c3;
+  border: 2px solid #86e7c3;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px white;
+}
+
+.price-thumb::-moz-range-track {
+  height: 3px;
+  background: transparent;
+}
+

@@ -39,7 +39,7 @@ const selectOptions: SelectOptionProps[] = [
 const Hero = () => {
   return (
     <div
-      className="pt-52 h-[32rem] px-20 "
+      className="px-4 sm:px-6 lg:px-20 pt-20 lg:pt-52 min-h-[26rem] lg:min-h-[32rem]"
       style={{
         backgroundImage: "url('/hero2.png')",
         backgroundSize: "cover",
@@ -48,20 +48,20 @@ const Hero = () => {
         
       }}
     >
-      <div className="space-y-2 w-3/4">
-        <h1 className="text-5xl text-white font-bold">
+      <div className="space-y-2 w-full md:w-3/4">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white font-bold">
           CHOOSE A PROPERTY YOU LIKE EFFORTLESSLY
         </h1>
-        <p className="text-white/95 ">
+        <p className="text-white/95 text-sm sm:text-base ">
           Explore a wide range of properties for sale and rent in Rwanda and
           across Africa.
         </p>
       </div>
 
-      <div className="p-4 rounded-t-2xl bg-white space-y-4 mt-10">
-        <h5 className="font-bold text-lg">Where are you Heading?</h5>
+      <div className="p-4 sm:p-6 rounded-t-2xl bg-white space-y-4 mt-6 sm:mt-10">
+        <h5 className="font-bold text-base sm:text-lg">Where are you Heading?</h5>
 
-        <div className="flex justify-between items-center gap-4 text-xs font-light text-[#1C1B1F]/90">
+        <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 sm:gap-4 text-xs font-light text-[#1C1B1F]/90">
           {selectOptions.map((selectOption, index) => (
             <fieldset
               key={index}

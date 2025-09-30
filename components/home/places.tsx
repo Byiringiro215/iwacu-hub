@@ -92,7 +92,7 @@ const places: PlaceProps[] = [
 ];
 const Places = () => {
   return (
-    <div className="py-10 px-20">
+    <div className="py-10 px-4 sm:px-6 lg:px-20">
       <div className="flex justify-end">
         <Button>
           <HousePlusIcon color="white" />
@@ -101,8 +101,8 @@ const Places = () => {
       </div>
 
       <section>
-        <div className="my-4 space-y-1 w-2/5">
-          <h1 className="text-3xl  font-semibold">
+        <div className="my-4 space-y-1 w-full md:w-3/5 lg:w-2/5">
+          <h1 className="text-2xl sm:text-3xl font-semibold">
             PLAN ON WHICH PROPERTY TO BUY OR RENT
           </h1>
           <p className="text-gray-500 text-sm">
@@ -120,22 +120,22 @@ const Places = () => {
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
           {places.map((place, index) => (
             <div
               key={index}
-              className="flex gap-2 items-center shadow-sm rounded-lg p-3"
+              className="flex gap-3 items-center shadow-sm rounded-lg p-3"
             >
               <img
                 src={place.image}
                 alt={place.name}
-                className="rounded-lg w- h- object-cover"
+                className="rounded-lg w-16 h-16 sm:w-20 sm:h-20 object-cover flex-shrink-0"
               />
-              <div className="">
-                <h3 className="font- text-gray-500/70 uppercase">
+              <div>
+                <h3 className="font-semibold text-gray-700 uppercase text-xs sm:text-sm">
                   {place.name}
                 </h3>
-                <p className=" uppercase font-">{place.location}</p>
+                <p className="uppercase text-[10px] sm:text-xs text-gray-500">{place.location}</p>
               </div>
             </div>
           ))}
@@ -144,8 +144,8 @@ const Places = () => {
 
       <section className="py-20 space-y-8">
         <div className="my-4 space-y-4 ">
-          <h1 className="text-3xl  font-semibold">DISCOVER BEST APARTMENTS</h1>
-          <p className="text-gray-500 text-sm w-1/2">
+          <h1 className="text-2xl sm:text-3xl font-semibold">DISCOVER BEST APARTMENTS</h1>
+          <p className="text-gray-500 text-sm w-full md:w-3/5 lg:w-1/2">
             Explore a wide range of properties for sale and rent in Rwanda and
             across Africa.
           </p>
@@ -161,24 +161,24 @@ const Places = () => {
           </Button>
         </div>
 
-        <div className="flex flex-col md:flex-row  gap-2 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 ">
 {          bestApartments.map((apartment, index) => (
-      <div className="relative rounded-lg overflow-hidden group  w-full" key={index}>
+      <div className="relative rounded-lg overflow-hidden group w-full" key={index}>
                 <Image
-                  className="w-full  object-cover brightness-75 transition group-hover:brightness-50"
+                  className="w-full object-cover brightness-75 transition group-hover:brightness-50"
                   src={apartment.image}
                   alt="offer image"
-                  width={400}
-                  height={250}
+                  width={800}
+                  height={500}
                 />
   
-                <div className="absolute bottom-0 right-0 left-0 flex flex-col  justify-center p-4">
-                  < p className="font-semibold  text-white ">{apartment.name}</p>
+                <div className="absolute bottom-0 right-0 left-0 flex flex-col justify-center p-3 sm:p-4">
+                  <p className="font-semibold text-white text-sm sm:text-base">{apartment.name}</p>
                   <div className="flex justify-between items-center w-full">
-                    <p className="text-xs text-white">{apartment.description}</p>
-                    <span className="font-semibold text-2xl text-white">${apartment.price}</span>
+                    <p className="text-[10px] sm:text-xs text-white">{apartment.description}</p>
+                    <span className="font-semibold text-lg sm:text-2xl text-white">${apartment.price}</span>
                   </div>
-                  <Button variant={'secondary'} className="w-full text-white">Buy/Reserve</Button>
+                  <Button variant={'secondary'} className="w-full text-white mt-2">Buy/Reserve</Button>
                 </div>
               </div>
 ))}
