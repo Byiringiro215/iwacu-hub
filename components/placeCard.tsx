@@ -1,6 +1,7 @@
 import React from "react";
 import { CupSoda, CupSodaIcon, Heart, MapPin } from "lucide-react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 import { placeProps } from "@/app/(main)/favourites/page";
 
 const HotelCard = ({
@@ -33,20 +34,18 @@ const HotelCard = ({
           <div>
             <h3 className="font-semibold text-lg">{name}</h3>
             <p className="text-xs text-gray-500 flex items-center gap-1">
-              <MapPin color="black" size={15}/>
+              <MapPin color="black" size={15} />
               {location}
-              </p>
+            </p>
 
             <div className="flex items-center gap-4 mt-2">
               <div className="flex items-center gap-1">
                 <div className="flex text-orange-500 text-sm">★★★★★</div>
-                <span className="text-xs  ">
-                  {numberOfStars} Star Hotel
-                </span>
+                <span className="text-xs  ">{numberOfStars} Star Hotel</span>
               </div>
               <div className="flex items-end text-xs font-semibold">
-              {/* <CupSodaIcon size={16}/> */}
-                 <span>{aminities}+ Aminities</span>
+                {/* <CupSodaIcon size={16}/> */}
+                <span>{aminities}+ Aminities</span>
               </div>
             </div>
 
@@ -65,20 +64,25 @@ const HotelCard = ({
             <p className="text-xs text-gray-400">starting from</p>
             <p className="text-[#396FF9] font-bold text-lg flex items-center">
               <span>${price}</span>
-               <span className="text-xs">/night</span>
+              <span className="text-xs">/night</span>
             </p>
             <p className="text-xs text-gray-500"> excl. tax</p>
           </div>
         </div>
-        
 
         <div className="flex items-center gap-2 mt-4">
-          <Button variant={'outline'} size={'icon'} className="p-3 border border-red-500 rounded-lg hover:bg-gray-100">
+          <Button
+            variant={"outline"}
+            size={"icon"}
+            className="p-3 border border-red-500 rounded-lg hover:bg-gray-100"
+          >
             <Heart className="w-5 h-5 text-red-500" />
           </Button>
-          <Button className="w-full text-black bg-[#699BFE]/50 hover:bg-[#699BFE]/40">
-            View Place
-          </Button>
+          <Link href={`/accommodation/${id}`} className="w-full">
+            <Button className="w-full text-black bg-[#699BFE]/50 hover:bg-[#699BFE]/40">
+              View Place
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
